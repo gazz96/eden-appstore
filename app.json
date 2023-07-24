@@ -1,0 +1,15 @@
+{
+  "name": "eden",
+  "displayName": "Eden",
+  "extra": {
+    "eas": {
+      "projectId": "4791d613-04f9-419b-a182-2e06cc1d7ceb"
+    }
+  },
+  "runtimeVersion": "1.0.0",
+  "updates": {
+    "url": "https://u.expo.dev/4791d613-04f9-419b-a182-2e06cc1d7ceb"
+  },
+  "android": {},
+  "ios": {}
+}
