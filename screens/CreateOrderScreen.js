@@ -701,7 +701,7 @@ const CreateOrderScreen = ({ route, navigation }) => {
                       Pick up time from 12 pm - 23 pm, during 24 hours after delivery.
                     </Text> */}
 
-                  <DatePicker
+                  <DatePicker 
                     date={timePickup}
                     onDateChange={setTimePickup}
                     mode="datetime"
