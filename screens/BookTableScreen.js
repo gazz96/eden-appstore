@@ -11,22 +11,23 @@ import {
   Image,
   KeyboardAvoidingView
 } from 'react-native';
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import Toast from 'react-native-toast-message';
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import {BASE_URL, Colors} from '../constant';
-import {Gap, HeaderWithBackButton} from '../components';
+import { BASE_URL, Colors } from '../constant';
+import { Gap, HeaderWithBackButton } from '../components';
 
 import DatePicker from 'react-native-date-picker';
 import SelectDropdown from 'react-native-select-dropdown';
 
-import {BranchAction, ReservationAction} from '../actions';
-import {useHookstate} from '@hookstate/core';
+import { BranchAction, ReservationAction } from '../actions';
+import { useHookstate } from '@hookstate/core';
 import moment from 'moment';
 import { UserContext } from '../context';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-const BookTableScreen = ({navigation}) => {
+const BookTableScreen = ({ navigation }) => {
   const [branches, setBranches] = useState([]);
   const [date, setDate] = useState(new Date());
   const [loading, setLoading] = useState(false);
@@ -107,144 +108,150 @@ const BookTableScreen = ({navigation}) => {
   }, []);
 
   return (
-    <KeyboardAvoidingView behavior='padding' style={{flex: 1}}>
-      <LinearGradient colors={['#272727', '#13140D']} style={styles.container}>
-        <ImageBackground
-          source={require('../assets/images/long-background.png')}
-          resizeMode="cover"
-          style={{width: '100%', flex: 1, height: '100%'}}>
-          <ScrollView style={{flex: 1}}>
-            <View style={{paddingHorizontal: 20}}>
-            <HeaderWithBackButton onPress={() => navigation.goBack()} title="BOOK A TABLE"/>
-            </View>
-            {loading ? (
-              <ActivityIndicator />
-            ) : (<>
-            <View style={{padding: 20}}>
-              <View>
-                <Gap height={20} />
-                <Text
-                  style={{
-                    color: '#FFFFF0',
-                    fontFamily: 'Montserrat-Regular',
-                    fontSize: 14,
-                    lineHeight: 30,
-                    letterSpacing: 0.8,
-                  }}>
-                  Request for table reservations are accepted at least 1 hour
-                  before the desired visit time
-                </Text>
+    <SafeAreaView style={{ flex: 1 }}>
+      <KeyboardAvoidingView behavior='padding' style={{ flex: 1 }}>
+        <LinearGradient colors={['#272727', '#13140D']} style={styles.container}>
+        
+          <ImageBackground
+            source={require('../assets/images/long-background.png')}
+            resizeMode="cover"
+            style={{ width: '100%', flex: 1, height: '100%' }}>
+            <ScrollView style={{ flex: 1 }}>
+              <View style={{ paddingHorizontal: 20 }}>
+                <Gap height={20}/>
+                <HeaderWithBackButton onPress={() => navigation.goBack()} title="BOOK A TABLE" />
               </View>
+              {loading ? (
+                <ActivityIndicator />
+              ) : (<>
+                <View style={{ padding: 20 }}>
+                  <View>
+                    <Gap height={20} />
+                    <Text
+                      style={{
+                        color: '#FFFFF0',
+                        fontFamily: 'Montserrat-Regular',
+                        fontSize: 14,
+                        lineHeight: 30,
+                        letterSpacing: 0.8,
+                      }}>
+                      Request for table reservations are accepted at least 1 hour
+                      before the desired visit time
+                    </Text>
+                  </View>
 
-            <Gap height={30} />
-            
-            <Gap height={30} />
-              <TextInput
-                style={styles.formControl}
-                placeholder="First Name"
-                placeholderTextColor="#A3A3A3"
-                onChangeText={text => formState.first_name.set(text)}
-                defaultValue={formState.first_name.get()}
-              />
-              <Gap height={30} />
-              <TextInput
-                style={styles.formControl}
-                placeholder="Last Name"
-                placeholderTextColor="#A3A3A3"
-                onChangeText={text => formState.last_name.set(text)}
-                defaultValue={formState.last_name.get()}
-              />
-              <Gap height={30} />
-              <TextInput
-                style={styles.formControl}
-                placeholder="Phone"
-                placeholderTextColor="#A3A3A3"
-                onChangeText={text => formState.phone.set(text)}
-                defaultValue={formState.phone.get()}
-                keyboardType="number-pad"
-              />
-              <Gap height={30} />
-              <SelectDropdown
-                data={branches}
-                defaultValueByIndex="0"
-                defaultButtonText="Select A Location"
-                buttonStyle={{
-                  width: '100%',
-                  borderBottomWidth: 1,
-                  borderRadius: 15,
-                  paddingLeft: 0,
-                }}
-                buttonTextStyle={{
-                  fontFamily: 'Montserrat-SemiBold',
-                  color: '#A3A3A3',
-                }}
-                dropdownStyle={{}}
-                onSelect={(selectedItem, index) => {
-                  console.log(selectedItem, index);
-                }}
-                buttonTextAfterSelection={(selectedItem, index) => {
-                  // text represented after item is selected
-                  // if data array is an array of objects then return selectedItem.property to render after item is selected
-                  formState.branch_id.set(selectedItem.id);
-                  return selectedItem.name;
-                }}
-                rowTextForSelection={(item, index) => {
-                  // text represented for each item in dropdown
-                  // if data array is an array of objects then return item.property to represent item in dropdown
-                  return item.name;
-                }}
-              />
-              <Gap height={30}/>
-              <View
-                style={{backgroundColor: '#eee', padding: 20, borderRadius: 15}}>
-                <DatePicker
-                  date={date}
-                  onDateChange={setDate}
-                  mode="datetime"
-                  fadeToColor="#eee"
-                  textColor="#A3A3A3"
-                  style={{fontFamily: 'Montserrat-SemiBold'}}
-                />
-              </View>
-              <Gap height={30} />
-              <TextInput
-                style={styles.formControl}
-                placeholder="Number of Guests"
-                placeholderTextColor="#A3A3A3"
-                keyboardType="number-pad"
-                onChangeText={text => formState.number_of_guest.set(text)}
-                defaultValue=""
-              />
-              <Gap height={30} />
-              <TextInput
-                style={styles.formControl}
-                placeholder="Note"
-                placeholderTextColor="#A3A3A3"
-                onChangeText={text => formState.description.set(text)}
-              />
-              <Gap height={30} />
+                  <Gap height={30} />
 
-              <TouchableOpacity
-                onPress={() => {
-                  createReservation();
-                }}
-                style={{width: '100%'}}>
-                <LinearGradient
-                  colors={['#FFDD9C', '#BC893C']}
-                  style={{borderRadius: 15}}>
-                  {loading ? (
-                    <Text style={styles.btnPrimary}>Loading...</Text>
-                  ) : (
-                    <Text style={styles.btnPrimary}>BOOK NOW</Text>
-                  )}
-                </LinearGradient>
-              </TouchableOpacity>
-            </View>
-            </>)}
-          </ScrollView>
-        </ImageBackground>
-      </LinearGradient>
-    </KeyboardAvoidingView>
+                  <Gap height={30} />
+                  <TextInput
+                    style={styles.formControl}
+                    placeholder="First Name"
+                    placeholderTextColor="#A3A3A3"
+                    onChangeText={text => formState.first_name.set(text)}
+                    defaultValue={formState.first_name.get()}
+                  />
+                  <Gap height={30} />
+                  <TextInput
+                    style={styles.formControl}
+                    placeholder="Last Name"
+                    placeholderTextColor="#A3A3A3"
+                    onChangeText={text => formState.last_name.set(text)}
+                    defaultValue={formState.last_name.get()}
+                  />
+                  <Gap height={30} />
+                  <TextInput
+                    style={styles.formControl}
+                    placeholder="Phone"
+                    placeholderTextColor="#A3A3A3"
+                    onChangeText={text => formState.phone.set(text)}
+                    defaultValue={formState.phone.get()}
+                    keyboardType="number-pad"
+                  />
+                  <Gap height={30} />
+                  <SelectDropdown
+                    data={branches}
+                    defaultValueByIndex="0"
+                    defaultButtonText="Select A Location"
+                    buttonStyle={{
+                      width: '100%',
+                      borderBottomWidth: 1,
+                      borderRadius: 15,
+                      paddingLeft: 0,
+                    }}
+                    buttonTextStyle={{
+                      fontFamily: 'Montserrat-SemiBold',
+                      color: '#A3A3A3',
+                    }}
+                    dropdownStyle={{}}
+                    onSelect={(selectedItem, index) => {
+                      console.log(selectedItem, index);
+                    }}
+                    buttonTextAfterSelection={(selectedItem, index) => {
+                      // text represented after item is selected
+                      // if data array is an array of objects then return selectedItem.property to render after item is selected
+                      formState.branch_id.set(selectedItem.id);
+                      return selectedItem.name;
+                    }}
+                    rowTextForSelection={(item, index) => {
+                      // text represented for each item in dropdown
+                      // if data array is an array of objects then return item.property to represent item in dropdown
+                      return item.name;
+                    }}
+                  />
+                  <Gap height={30} />
+                  <View
+                    style={{ backgroundColor: '#eee', padding: 20, borderRadius: 15 }}>
+                    <DatePicker
+                      date={date}
+                      onDateChange={setDate}
+                      mode="datetime"
+                      fadeToColor="#eee"
+                      textColor="#A3A3A3"
+                      style={{ fontFamily: 'Montserrat-SemiBold' }}
+                    />
+                  </View>
+                  <Gap height={30} />
+                  <TextInput
+                    style={styles.formControl}
+                    placeholder="Number of Guests"
+                    placeholderTextColor="#A3A3A3"
+                    keyboardType="number-pad"
+                    onChangeText={text => formState.number_of_guest.set(text)}
+                    defaultValue={formState.number_of_guest.get()}
+                  />
+                  <Gap height={30} />
+                  <TextInput
+                    style={styles.formControl}
+                    placeholder="Note"
+                    placeholderTextColor="#A3A3A3"
+                    onChangeText={text => formState.description.set(text)}
+                    defaultValue={formState.description.get()}
+                  />
+                  <Gap height={30} />
+
+                  <TouchableOpacity
+                    onPress={() => {
+                      createReservation();
+                    }}
+                    style={{ width: '100%' }}>
+                    <LinearGradient
+                      colors={['#FFDD9C', '#BC893C']}
+                      style={{ borderRadius: 15 }}>
+                      {loading ? (
+                        <Text style={styles.btnPrimary}>Loading...</Text>
+                      ) : (
+                        <Text style={styles.btnPrimary}>BOOK NOW</Text>
+                      )}
+                    </LinearGradient>
+                  </TouchableOpacity>
+                </View>
+              </>)}
+            </ScrollView>
+          </ImageBackground>
+        </LinearGradient>
+      </KeyboardAvoidingView>
+
+    </SafeAreaView>
   );
 };
 

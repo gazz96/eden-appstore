@@ -9,7 +9,7 @@ import Gap from './Gap';
 const HeaderWithBackButton = (props) => {
   return (
     <View>
-      <Gap height={40}/>
+      <Gap height={0}/>
       <View style={styles.header}>
           <TouchableOpacity  style={styles.backButton} onPress={props.onPress}>
             <Image source={require('../assets/images/arrow-right.png')}/>

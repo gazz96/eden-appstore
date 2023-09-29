@@ -22,6 +22,7 @@ import RenderHtml from 'react-native-render-html';
 import LinearGradient from 'react-native-linear-gradient';
 import {LangContext} from '../context';
 import { HeaderWithBackButton } from '../components';
+import { SafeAreaView } from 'react-native-safe-area-context';
 const DetailArticleScreen = ({route, navigation}) => {
   const {postId} = route.params;
   const [article, setArticle] = useState({});
@@ -66,55 +67,57 @@ const DetailArticleScreen = ({route, navigation}) => {
   
   };
   return (
-    <LinearGradient colors={['#272727', '#13140D']} style={{flex: 1}}>
-      <ImageBackground
-        source={require('../assets/images/long-background.png')}
-        resizeMode="cover"
-        style={{width: '100%', flex: 1, height: '100%'}}>
-        <ScrollView style={{flex: 1, height: '100%'}}>
-          {loading ? (
-            <ActivityIndicator />
-          ) : (
-            <>
-             <View style={{paddingHorizontal: 16}}>
-              <Gap height={20}/>
-              <HeaderWithBackButton title="NEWS & PROMOTION" onPress={() => {
-                navigation.goBack()
-              }}/>
-              <Gap height={30}/>
-             </View>
-              <ImageBackground
-                source={{
-                  uri: BASE_URL + '/' + article.thumbnail,
-                }}
-                resizeMode='contain'
-                imageStyle={{}}
-                style={styles.hero}>
-                
-              </ImageBackground>
-              <View style={styles.container}>
-                <Text style={styles.title}>{article.name}</Text>
-                <Gap height={20} />
-                {/* <HTMLView value={ article.post_content}/> */}
-                <RenderHtml
-                  contentWidth={width}
-                  source={{
-                    html: article.content,
-                  }}
-                  tagsStyles={tagsStyles}
-                  enableExperimentalMarginCollapsing={true}
-                  renderersProps={{
-                    img: {
-                      enableExperimentalPercentWidth: true,
-                    },
-                  }}
-                />
+    <SafeAreaView style={{flex: 1}}>
+      <LinearGradient colors={['#272727', '#13140D']} style={{flex: 1}}>
+        <ImageBackground
+          source={require('../assets/images/long-background.png')}
+          resizeMode="cover"
+          style={{width: '100%', flex: 1, height: '100%'}}>
+          <ScrollView style={{flex: 1, height: '100%'}}>
+            {loading ? (
+              <ActivityIndicator />
+            ) : (
+              <>
+              <View style={{paddingHorizontal: 16}}>
+                <Gap height={20}/>
+                <HeaderWithBackButton title="NEWS & PROMOTION" onPress={() => {
+                  navigation.goBack()
+                }}/>
+                <Gap height={30}/>
               </View>
-            </>
-          )}
-        </ScrollView>
-      </ImageBackground>
-    </LinearGradient>
+                <ImageBackground
+                  source={{
+                    uri: BASE_URL + '/' + article.thumbnail,
+                  }}
+                  resizeMode='contain'
+                  imageStyle={{}}
+                  style={styles.hero}>
+                  
+                </ImageBackground>
+                <View style={styles.container}>
+                  <Text style={styles.title}>{article.name}</Text>
+                  <Gap height={20} />
+                  {/* <HTMLView value={ article.post_content}/> */}
+                  <RenderHtml
+                    contentWidth={width}
+                    source={{
+                      html: article.content,
+                    }}
+                    tagsStyles={tagsStyles}
+                    enableExperimentalMarginCollapsing={true}
+                    renderersProps={{
+                      img: {
+                        enableExperimentalPercentWidth: true,
+                      },
+                    }}
+                  />
+                </View>
+              </>
+            )}
+          </ScrollView>
+        </ImageBackground>
+      </LinearGradient>
+    </SafeAreaView>
   );
 };
 

@@ -33,6 +33,10 @@ const ArticleAction = {
         }
 
         return require('../assets/images/placeholder-news.png');
+    },
+    categories: async () => {
+        const response = await axiosRequest.get('blog/categories');
+        return response.data;
     }
 }
 

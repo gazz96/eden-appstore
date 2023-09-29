@@ -6,7 +6,7 @@ import {
 } from '@react-navigation/drawer';
 
 import { LangContext, UserContext } from '../context';
-import { BASE_URL } from '../constant';
+import { Rp, BASE_URL } from '../constant';
 // import {TouchableOpacity} from 'react-native-gesture-handler';
 
 import Gap from './Gap';
@@ -99,7 +99,7 @@ const CustomDrawer = props => {
                       fontFamily: 'Montserrat-SemiBold',
                       fontSize: 16,
                     }}>
-                    {user.point} EDC
+                    {Rp(user.point)} EDC
                   </Text>
                 </View>
               </>

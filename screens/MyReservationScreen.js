@@ -7,6 +7,7 @@ import {
   RefreshControl,
   TextInput,
   ImageBackground,
+  SafeAreaView
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {Gap, HeaderWithBackButton, Loading} from '../components';
@@ -79,6 +80,7 @@ const MyReservationScreen = ({navigation}) => {
   };
 
   return (
+    <SafeAreaView style={{flex: 1}}>
     <LinearGradient colors={['#272727', '#13140D']} style={styles.container}>
       <ImageBackground
         source={require('../assets/images/long-background.png')}
@@ -211,6 +213,7 @@ const MyReservationScreen = ({navigation}) => {
         </ScrollView>
       </ImageBackground>
     </LinearGradient>
+    </SafeAreaView>
   );
 };
 

@@ -13,6 +13,7 @@ import LinearGradient from 'react-native-linear-gradient'
 import { HeaderWithBackButton } from '../components'
 import WebView from 'react-native-webview'
 import InAppBrowser from 'react-native-inappbrowser-reborn'
+import { SafeAreaView } from 'react-native-safe-area-context'
 
 const FaqScreen = ({route, navigation}) => {
     //const { article } = route.params;
@@ -40,6 +41,7 @@ const FaqScreen = ({route, navigation}) => {
 
     const { width } = useWindowDimensions();
     return (
+        <SafeAreaView style={{flex: 1}}>
         <LinearGradient colors={['#272727', '#13140D']} style={{ flex: 1 }}>
             <ImageBackground source={require('../assets/images/long-background.png')} resizeMode="cover" style={{width: '100%', flex: 1, height: '100%'}}>
                 <ScrollView style={{  height: '100%', paddingHorizontal: 10 }} scrollIndicatorInsets={{ right: 1 }}>
@@ -160,6 +162,7 @@ const FaqScreen = ({route, navigation}) => {
                 </ScrollView>
             </ImageBackground>
         </LinearGradient>
+        </SafeAreaView>
     )
 }
 

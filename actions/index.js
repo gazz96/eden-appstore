@@ -11,6 +11,8 @@ import ReservationAction from './ReservationAction';
 import ProductAction from './ProductAction';
 import CartAction from './CartAction';
 import TimelineAction from './TimelineAction';
+import SettingAction from './SettingAction';
+
 export {
   ProductAction,
   ReservationAction,
@@ -24,5 +26,6 @@ export {
   OrderAction,
   InductionAction,
   CartAction,
-  TimelineAction
+  TimelineAction,
+  SettingAction
 };

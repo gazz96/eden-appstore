@@ -8,6 +8,7 @@ import { UserContext } from '../context';
 import Toast from 'react-native-toast-message';
 import LinearGradient from 'react-native-linear-gradient'
 import WebView from 'react-native-webview';
+import { SafeAreaView } from 'react-native-safe-area-context';
 const MemberCardScreen = ({ navigation }) => {
 //   const [email, setEmail] = useState('bagas.topati@gmail.com');
 //   const [password, setPassword] = useState('bagast');
@@ -30,6 +31,7 @@ const MemberCardScreen = ({ navigation }) => {
   })
   
   return (
+    <SafeAreaView style={{flex: 1}}>
     <LinearGradient colors={['#272727', '#13140D']} style={styles.container}>
         <ImageBackground source={require('../assets/images/long-background.png')} resizeMode="cover" style={{width: '100%', flex: 1, height: '100%'}}>
             <ScrollView style={{ flex: 1 }}>
@@ -78,6 +80,7 @@ const MemberCardScreen = ({ navigation }) => {
             </ScrollView>
         </ImageBackground>
     </LinearGradient>
+    </SafeAreaView>
   )
 }
 

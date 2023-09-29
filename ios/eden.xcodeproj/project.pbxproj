@@ -11,8 +11,8 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		345F92261F5931005F70AC94 /* libPods-eden.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1185155874F5160AC1A6CB8A /* libPods-eden.a */; };
-		7EB6500C2A621D9641085C4B /* libPods-eden-edenTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97AB1D1E500A84ADDBAA6B85 /* libPods-eden-edenTests.a */; };
+		3F8681A03ED7BF831E1E930E /* libPods-eden.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A99A5A381898EBEB7EDB2ED /* libPods-eden.a */; };
+		4F0654ACEAA33BC28CCDDE03 /* libPods-eden-edenTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A55336F3E127710BA7105FE2 /* libPods-eden-edenTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		8759566429DAFFD3003BB36F /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8759566329DAFFD3003BB36F /* NotificationService.swift */; };
 		8759566829DAFFD3003BB36F /* OneSignalNotificationServiceExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 8759566129DAFFD3003BB36F /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -30,7 +30,7 @@
 		87CA64FC29C75D53002391D1 /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 87CA64F529C75D53002391D1 /* FontAwesome5_Brands.ttf */; };
 		87CA64FD29C75D53002391D1 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 87CA64F629C75D53002391D1 /* FontAwesome5_Solid.ttf */; };
 		87CA64FE29C75D53002391D1 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 87CA64F629C75D53002391D1 /* FontAwesome5_Solid.ttf */; };
-		D094908696618DC3B58837AE /* libPods-OneSignalNotificationServiceExtension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E6E53CB50C50C37700683851 /* libPods-OneSignalNotificationServiceExtension.a */; };
+		CA80B528ADBAC8FCDAAD1200 /* libPods-OneSignalNotificationServiceExtension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6034F9BE9D26EE5443FCBA40 /* libPods-OneSignalNotificationServiceExtension.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,14 +68,18 @@
 		00E356EE1AD99517003FC87E /* edenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = edenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* edenTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = edenTests.m; sourceTree = "<group>"; };
-		1185155874F5160AC1A6CB8A /* libPods-eden.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-eden.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07F961A680F5B00A75B9A /* eden.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eden.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = eden/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = eden/AppDelegate.mm; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = eden/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = eden/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = eden/main.m; sourceTree = "<group>"; };
-		771612C8E3A4ECEEC218D9D7 /* Pods-eden.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eden.release.xcconfig"; path = "Target Support Files/Pods-eden/Pods-eden.release.xcconfig"; sourceTree = "<group>"; };
+		1E0B1D3FE73DDC8E06F3C8A5 /* Pods-eden.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eden.debug.xcconfig"; path = "Target Support Files/Pods-eden/Pods-eden.debug.xcconfig"; sourceTree = "<group>"; };
+		2A99A5A381898EBEB7EDB2ED /* libPods-eden.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-eden.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2AEA0ABCC5EE7ABB83A30940 /* Pods-eden-edenTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eden-edenTests.release.xcconfig"; path = "Target Support Files/Pods-eden-edenTests/Pods-eden-edenTests.release.xcconfig"; sourceTree = "<group>"; };
+		6034F9BE9D26EE5443FCBA40 /* libPods-OneSignalNotificationServiceExtension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OneSignalNotificationServiceExtension.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		660391EE96071BD9979F4221 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		6CDA01A8B9C12EA6EF460031 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = eden/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8759565C29DAFF42003BB36F /* edenRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = edenRelease.entitlements; path = eden/edenRelease.entitlements; sourceTree = "<group>"; };
 		8759566129DAFFD3003BB36F /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,14 +98,10 @@
 		87CA64F429C75D53002391D1 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		87CA64F529C75D53002391D1 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
 		87CA64F629C75D53002391D1 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
-		97AB1D1E500A84ADDBAA6B85 /* libPods-eden-edenTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-eden-edenTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9CCE2F8CAF36B99E8E92870D /* Pods-eden-edenTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eden-edenTests.debug.xcconfig"; path = "Target Support Files/Pods-eden-edenTests/Pods-eden-edenTests.debug.xcconfig"; sourceTree = "<group>"; };
-		BB07F1E86006F69130EAE2AE /* Pods-eden.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eden.debug.xcconfig"; path = "Target Support Files/Pods-eden/Pods-eden.debug.xcconfig"; sourceTree = "<group>"; };
-		C9C0A3DD551BFFE4CE54407F /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
-		DB7BA54BA9ADCDB6CAEDDFD3 /* Pods-eden-edenTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eden-edenTests.release.xcconfig"; path = "Target Support Files/Pods-eden-edenTests/Pods-eden-edenTests.release.xcconfig"; sourceTree = "<group>"; };
-		E6E53CB50C50C37700683851 /* libPods-OneSignalNotificationServiceExtension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OneSignalNotificationServiceExtension.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A291094BC4B2422DB3335E9F /* Pods-eden.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eden.release.xcconfig"; path = "Target Support Files/Pods-eden/Pods-eden.release.xcconfig"; sourceTree = "<group>"; };
+		A55336F3E127710BA7105FE2 /* libPods-eden-edenTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-eden-edenTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D22ECF74B454E8F48CD2B7ED /* Pods-eden-edenTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eden-edenTests.debug.xcconfig"; path = "Target Support Files/Pods-eden-edenTests/Pods-eden-edenTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		F0919534C4D5DCD23D76F718 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,7 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7EB6500C2A621D9641085C4B /* libPods-eden-edenTests.a in Frameworks */,
+				4F0654ACEAA33BC28CCDDE03 /* libPods-eden-edenTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,7 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				345F92261F5931005F70AC94 /* libPods-eden.a in Frameworks */,
+				3F8681A03ED7BF831E1E930E /* libPods-eden.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,7 +125,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D094908696618DC3B58837AE /* libPods-OneSignalNotificationServiceExtension.a in Frameworks */,
+				CA80B528ADBAC8FCDAAD1200 /* libPods-OneSignalNotificationServiceExtension.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,9 +169,9 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				E6E53CB50C50C37700683851 /* libPods-OneSignalNotificationServiceExtension.a */,
-				1185155874F5160AC1A6CB8A /* libPods-eden.a */,
-				97AB1D1E500A84ADDBAA6B85 /* libPods-eden-edenTests.a */,
+				6034F9BE9D26EE5443FCBA40 /* libPods-OneSignalNotificationServiceExtension.a */,
+				2A99A5A381898EBEB7EDB2ED /* libPods-eden.a */,
+				A55336F3E127710BA7105FE2 /* libPods-eden-edenTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -240,12 +240,12 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				C9C0A3DD551BFFE4CE54407F /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */,
-				F0919534C4D5DCD23D76F718 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */,
-				BB07F1E86006F69130EAE2AE /* Pods-eden.debug.xcconfig */,
-				771612C8E3A4ECEEC218D9D7 /* Pods-eden.release.xcconfig */,
-				9CCE2F8CAF36B99E8E92870D /* Pods-eden-edenTests.debug.xcconfig */,
-				DB7BA54BA9ADCDB6CAEDDFD3 /* Pods-eden-edenTests.release.xcconfig */,
+				660391EE96071BD9979F4221 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */,
+				6CDA01A8B9C12EA6EF460031 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */,
+				1E0B1D3FE73DDC8E06F3C8A5 /* Pods-eden.debug.xcconfig */,
+				A291094BC4B2422DB3335E9F /* Pods-eden.release.xcconfig */,
+				D22ECF74B454E8F48CD2B7ED /* Pods-eden-edenTests.debug.xcconfig */,
+				2AEA0ABCC5EE7ABB83A30940 /* Pods-eden-edenTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -257,12 +257,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "edenTests" */;
 			buildPhases = (
-				F7843B45BB9BD3C552A1231D /* [CP] Check Pods Manifest.lock */,
+				9AA40053D1B2418F37307408 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				B555433B934107ADFDF11806 /* [CP] Embed Pods Frameworks */,
-				09226984F95094E4DFED2BCE /* [CP] Copy Pods Resources */,
+				D058E20B3D6CED738417C67B /* [CP] Embed Pods Frameworks */,
+				D04CD309F0015AD4BB22112D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -278,15 +278,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "eden" */;
 			buildPhases = (
-				D2D18C3DCD96411366DEA0A2 /* [CP] Check Pods Manifest.lock */,
+				2218D0451061DD11999FF39D /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				8759566C29DAFFD3003BB36F /* Embed Foundation Extensions */,
-				D1FFE611AE327D95B09E41AB /* [CP] Embed Pods Frameworks */,
-				0E49E0A2E218078098CB9A09 /* [CP] Copy Pods Resources */,
+				85AB8FCB23AB2E29704A1320 /* [CP] Embed Pods Frameworks */,
+				1B70044B0D97DFF3304ABEBE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -302,7 +302,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8759566929DAFFD3003BB36F /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */;
 			buildPhases = (
-				D5755E59848101C7EBD5470E /* [CP] Check Pods Manifest.lock */,
+				66EB7CF07655CD3911DEABB1 /* [CP] Check Pods Manifest.lock */,
 				8759565D29DAFFD3003BB36F /* Sources */,
 				8759565E29DAFFD3003BB36F /* Frameworks */,
 				8759565F29DAFFD3003BB36F /* Resources */,
@@ -415,24 +415,7 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
-		09226984F95094E4DFED2BCE /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-eden-edenTests/Pods-eden-edenTests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-eden-edenTests/Pods-eden-edenTests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-eden-edenTests/Pods-eden-edenTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		0E49E0A2E218078098CB9A09 /* [CP] Copy Pods Resources */ = {
+		1B70044B0D97DFF3304ABEBE /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -449,41 +432,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-eden/Pods-eden-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B555433B934107ADFDF11806 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-eden-edenTests/Pods-eden-edenTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-eden-edenTests/Pods-eden-edenTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-eden-edenTests/Pods-eden-edenTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D1FFE611AE327D95B09E41AB /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-eden/Pods-eden-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-eden/Pods-eden-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-eden/Pods-eden-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D2D18C3DCD96411366DEA0A2 /* [CP] Check Pods Manifest.lock */ = {
+		2218D0451061DD11999FF39D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -505,7 +454,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D5755E59848101C7EBD5470E /* [CP] Check Pods Manifest.lock */ = {
+		66EB7CF07655CD3911DEABB1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -527,7 +476,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F7843B45BB9BD3C552A1231D /* [CP] Check Pods Manifest.lock */ = {
+		85AB8FCB23AB2E29704A1320 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-eden/Pods-eden-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-eden/Pods-eden-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-eden/Pods-eden-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9AA40053D1B2418F37307408 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -547,6 +513,40 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D04CD309F0015AD4BB22112D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-eden-edenTests/Pods-eden-edenTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-eden-edenTests/Pods-eden-edenTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-eden-edenTests/Pods-eden-edenTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D058E20B3D6CED738417C67B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-eden-edenTests/Pods-eden-edenTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-eden-edenTests/Pods-eden-edenTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-eden-edenTests/Pods-eden-edenTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -614,7 +614,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9CCE2F8CAF36B99E8E92870D /* Pods-eden-edenTests.debug.xcconfig */;
+			baseConfigurationReference = D22ECF74B454E8F48CD2B7ED /* Pods-eden-edenTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -643,7 +643,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DB7BA54BA9ADCDB6CAEDDFD3 /* Pods-eden-edenTests.release.xcconfig */;
+			baseConfigurationReference = 2AEA0ABCC5EE7ABB83A30940 /* Pods-eden-edenTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -669,7 +669,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BB07F1E86006F69130EAE2AE /* Pods-eden.debug.xcconfig */;
+			baseConfigurationReference = 1E0B1D3FE73DDC8E06F3C8A5 /* Pods-eden.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -700,7 +700,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 771612C8E3A4ECEEC218D9D7 /* Pods-eden.release.xcconfig */;
+			baseConfigurationReference = A291094BC4B2422DB3335E9F /* Pods-eden.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -867,7 +867,7 @@
 		};
 		8759566A29DAFFD3003BB36F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C9C0A3DD551BFFE4CE54407F /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */;
+			baseConfigurationReference = 660391EE96071BD9979F4221 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -907,7 +907,7 @@
 		};
 		8759566B29DAFFD3003BB36F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F0919534C4D5DCD23D76F718 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */;
+			baseConfigurationReference = 6CDA01A8B9C12EA6EF460031 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;

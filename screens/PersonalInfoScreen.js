@@ -29,6 +29,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import DatePicker from 'react-native-date-picker';
 import moment from 'moment';
 import SelectDropdown from 'react-native-select-dropdown';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const PersonalInfoScreen = ({navigation}) => {
   const [isLoading, setLoading] = useState(true);
@@ -239,194 +240,196 @@ const PersonalInfoScreen = ({navigation}) => {
   }, []);
 
   return (
-    <KeyboardAvoidingView behavior='padding' style={{flex: 1}}>
-    <LinearGradient colors={['#272727', '#13140D']} style={styles.container}>
-      <ImageBackground
-        source={require('../assets/images/long-background.png')}
-        resizeMode="cover"
-        style={{width: '100%', flex: 1, height: '100%'}}>
-        <ScrollView style={{flex: 1, paddingHorizontal: 20}}>
-          <Gap height={20} />
-          <HeaderWithBackButton title="PROFILE" onPress={() => navigation.goBack()} />
-          <Gap height={25} />
-    
-          {isLoading ? (
-            <Loading />
-          ) : (
-            <View>
+    <SafeAreaView style={{flex: 1}}>
+      <KeyboardAvoidingView behavior='padding' style={{flex: 1}}>
+      <LinearGradient colors={['#272727', '#13140D']} style={styles.container}>
+        <ImageBackground
+          source={require('../assets/images/long-background.png')}
+          resizeMode="cover"
+          style={{width: '100%', flex: 1, height: '100%'}}>
+          <ScrollView style={{flex: 1, paddingHorizontal: 20}}>
+            <Gap height={20} />
+            <HeaderWithBackButton title="PROFILE" onPress={() => navigation.goBack()} />
+            <Gap height={25} />
+      
+            {isLoading ? (
+              <Loading />
+            ) : (
               <View>
-                <Text style={styles.formLabel}>FIRST NAME</Text>
-                <TextInput
-                  style={styles.formControl}
-                  onChangeText={text => setValue('first_name', text)}
-                  value={personalInfoState.first_name.get()}
-                />
-              </View>
-              <Gap height={20} />
+                <View>
+                  <Text style={styles.formLabel}>FIRST NAME</Text>
+                  <TextInput
+                    style={styles.formControl}
+                    onChangeText={text => setValue('first_name', text)}
+                    value={personalInfoState.first_name.get()}
+                  />
+                </View>
+                <Gap height={20} />
 
-              <View>
-                <Text style={styles.formLabel}>LAST NAME</Text>
-                <TextInput
-                  style={styles.formControl}
-                  onChangeText={text => setValue('last_name', text)}
-                  value={personalInfoState.last_name.get()}
-                />
-              </View>
-              <Gap height={20} />
+                <View>
+                  <Text style={styles.formLabel}>LAST NAME</Text>
+                  <TextInput
+                    style={styles.formControl}
+                    onChangeText={text => setValue('last_name', text)}
+                    value={personalInfoState.last_name.get()}
+                  />
+                </View>
+                <Gap height={20} />
 
-              <View>
-                <Text style={styles.formLabel}>EMAIL</Text>
-                <TextInput
-                  style={styles.formControl}
-                  value={userState.get().email}
-                />
-              </View>
-              <Gap height={20} />
+                <View>
+                  <Text style={styles.formLabel}>EMAIL</Text>
+                  <TextInput
+                    style={styles.formControl}
+                    value={userState.get().email}
+                  />
+                </View>
+                <Gap height={20} />
 
-              <View>
-                <Text style={styles.formLabel}>PHONE NUMBER</Text>
-                <TextInput
-                  style={styles.formControl}
-                  onChangeText={text => setValue('phone_number', text)}
-                  value={personalInfoState.phone_number.get()}
-                />
-              </View>
-              <Gap height={20} />
+                <View>
+                  <Text style={styles.formLabel}>PHONE NUMBER</Text>
+                  <TextInput
+                    style={styles.formControl}
+                    onChangeText={text => setValue('phone_number', text)}
+                    value={personalInfoState.phone_number.get()}
+                  />
+                </View>
+                <Gap height={20} />
 
-              <View>
-                <Text style={styles.formLabel}>DATE OF BIRTH</Text>
-                <TouchableOpacity style={{
-                  borderRadius: 15,
-                  backgroundColor: '#eee'
-                }} onPress={() => {
-                  setOpen(true)
-                }}>
-                  <Text style={{
-                    borderWidth: 1,
-                    borderColor: '#D9D9D9',
+                <View>
+                  <Text style={styles.formLabel}>DATE OF BIRTH</Text>
+                  <TouchableOpacity style={{
                     borderRadius: 15,
-                    height: 50,
-                    fontSize: 16,
-                    paddingHorizontal: 16,
-                    color: Colors.dark,
-                    fontFamily: 'Montserrat-SemiBold',
-                    overflow: 'hidden',
-                    lineHeight: 50,
-                  }}>{moment(date).format('YYYY-MM-DD')}</Text>
-                </TouchableOpacity>
-              </View>
-              <Gap height={20} />
-
-              <DatePicker
-                    modal
-                    date={date}
-                    onDateChange={setDate}
-                    open={open}
-                    onConfirm={(date) => {
-                        setOpen(false)
-                        setDate(date)
-                    }}
-                    onCancel={() => {
-                        setOpen(false)
-                    }}
-                                mode="date"
-                    fadeToColor="#eee"
-                    textColor="#A3A3A3"
-                    style={{fontFamily: 'Montserrat-SemiBold', width: 300, borderRadius: 15}}
-                />
-
-              <View>
-                <Text style={styles.formLabel}>ADDRESS DETAILS (Optional)</Text>
-                <TextInput
-                  style={styles.formControl}
-                  onChangeText={text => setValue('address', text)}
-                  value={personalInfoState.address.get()}
-                />
-                <Text style={{color: '#ddd', marginTop: 2, fontFamily: 'Montserrat-SemiBold', fontSize: 12}}>This address will be used for delivery</Text>
-              </View>
-              <Gap height={20} />
-              <View style={{width: '100%'}}>
-                <Text style={styles.formLabel}>Country</Text>
-                <Text
-                  style={[styles.formControl, { textAlign: 'center', lineHeight: 50, overflow: 'hidden'}]}
-                  placeholder={'Select Country'}
-                  placeholderTextColor="#A3A3A3"
-                  defaultValue={countryContext.get()}
-                  editable={false}
-                  onPress={() => {
-                    navigation.navigate('Select Country')
+                    backgroundColor: '#eee'
+                  }} onPress={() => {
+                    setOpen(true)
                   }}>
-                  {
-                    (countryContext.get()) ? 
-                      Countries
-                        .filter((country) => country.code == countryContext.get())
-                        .map((country) => country.name
-                      ) : 
-                    'Select Country'
-                  }
-                </Text>
-              </View>
-              <Gap height={20} />
-              <View>
-                <Text style={styles.formLabel}>Profile</Text>
-
-                {previewThumbnail.length ? (
-                  <TouchableOpacity
-                    onPress={() => {
-                      launchImageLibrary();
-                    }}>
-                    <Image
-                      source={{uri: previewThumbnail}}
-                      style={{
-                        width: 150,
-                        height: 150,
-                        borderRadius: 10,
-                        backgroundColor: '#eee',
-                      }}
-                      resizeMode="cover"
-                    />
+                    <Text style={{
+                      borderWidth: 1,
+                      borderColor: '#D9D9D9',
+                      borderRadius: 15,
+                      height: 50,
+                      fontSize: 16,
+                      paddingHorizontal: 16,
+                      color: Colors.dark,
+                      fontFamily: 'Montserrat-SemiBold',
+                      overflow: 'hidden',
+                      lineHeight: 50,
+                    }}>{moment(date).format('YYYY-MM-DD')}</Text>
                   </TouchableOpacity>
-                ) : (
+                </View>
+                <Gap height={20} />
+
+                <DatePicker
+                      modal
+                      date={date}
+                      onDateChange={setDate}
+                      open={open}
+                      onConfirm={(date) => {
+                          setOpen(false)
+                          setDate(date)
+                      }}
+                      onCancel={() => {
+                          setOpen(false)
+                      }}
+                                  mode="date"
+                      fadeToColor="#eee"
+                      textColor="#A3A3A3"
+                      style={{fontFamily: 'Montserrat-SemiBold', width: 300, borderRadius: 15}}
+                  />
+
+                <View>
+                  <Text style={styles.formLabel}>ADDRESS DETAILS (Optional)</Text>
+                  <TextInput
+                    style={styles.formControl}
+                    onChangeText={text => setValue('address', text)}
+                    value={personalInfoState.address.get()}
+                  />
+                  <Text style={{color: '#ddd', marginTop: 2, fontFamily: 'Montserrat-SemiBold', fontSize: 12}}>This address will be used for delivery</Text>
+                </View>
+                <Gap height={20} />
+                <View style={{width: '100%'}}>
+                  <Text style={styles.formLabel}>Country</Text>
                   <Text
-                    style={styles.formInputFile}
+                    style={[styles.formControl, { textAlign: 'center', lineHeight: 50, overflow: 'hidden'}]}
+                    placeholder={'Select Country'}
+                    placeholderTextColor="#A3A3A3"
+                    defaultValue={countryContext.get()}
+                    editable={false}
                     onPress={() => {
-                      launchImageLibrary();
+                      navigation.navigate('Select Country')
                     }}>
-                    <Icon name={'plus'} size={16} color={Colors.dark} solid />
+                    {
+                      (countryContext.get()) ? 
+                        Countries
+                          .filter((country) => country.code == countryContext.get())
+                          .map((country) => country.name
+                        ) : 
+                      'Select Country'
+                    }
                   </Text>
-                )}
+                </View>
+                <Gap height={20} />
+                <View>
+                  <Text style={styles.formLabel}>Profile</Text>
+
+                  {previewThumbnail.length ? (
+                    <TouchableOpacity
+                      onPress={() => {
+                        launchImageLibrary();
+                      }}>
+                      <Image
+                        source={{uri: previewThumbnail}}
+                        style={{
+                          width: 150,
+                          height: 150,
+                          borderRadius: 10,
+                          backgroundColor: '#eee',
+                        }}
+                        resizeMode="cover"
+                      />
+                    </TouchableOpacity>
+                  ) : (
+                    <Text
+                      style={styles.formInputFile}
+                      onPress={() => {
+                        launchImageLibrary();
+                      }}>
+                      <Icon name={'plus'} size={16} color={Colors.dark} solid />
+                    </Text>
+                  )}
+                </View>
+
+                <Gap height={25}/>
+
+                <TouchableOpacity
+                  onPress={() => {
+                    updateProfile();
+                  }}>
+                  <LinearGradient
+                    colors={['#FFDD9C', '#BC893C']}
+                    style={{borderRadius: 15}}>
+                    <Text style={styles.btnPrimary}>Save Changes</Text>
+                  </LinearGradient>
+                </TouchableOpacity>
+                <Gap height={20}/>
+                <TouchableOpacity
+                  onPress={() => {
+                    confirmDeactivation()
+                  }}>
+                  <LinearGradient
+                    colors={['red', 'red']}
+                    style={{borderRadius: 15}}>
+                    <Text style={styles.btnPrimary}>Deactive Account</Text>
+                  </LinearGradient>
+                </TouchableOpacity>
+                <Gap height={40} />
               </View>
-
-              <Gap height={25}/>
-
-              <TouchableOpacity
-                onPress={() => {
-                  updateProfile();
-                }}>
-                <LinearGradient
-                  colors={['#FFDD9C', '#BC893C']}
-                  style={{borderRadius: 15}}>
-                  <Text style={styles.btnPrimary}>Save Changes</Text>
-                </LinearGradient>
-              </TouchableOpacity>
-              <Gap height={20}/>
-              <TouchableOpacity
-                onPress={() => {
-                  confirmDeactivation()
-                }}>
-                <LinearGradient
-                  colors={['red', 'red']}
-                  style={{borderRadius: 15}}>
-                  <Text style={styles.btnPrimary}>Deactive Account</Text>
-                </LinearGradient>
-              </TouchableOpacity>
-              <Gap height={40} />
-            </View>
-          )}
-        </ScrollView>
-      </ImageBackground>
-    </LinearGradient>
-    </KeyboardAvoidingView>
+            )}
+          </ScrollView>
+        </ImageBackground>
+      </LinearGradient>
+      </KeyboardAvoidingView>
+    </SafeAreaView>
   );
 };
 

@@ -17,6 +17,7 @@ import {
   import {UserContext} from '../context';
   import LinearGradient from 'react-native-linear-gradient';
   import { TouchableOpacity } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
   
   const MyShishaOrderScreen = ({navigation}) => {
     const [orders, setOrders] = useState([]);
@@ -93,6 +94,7 @@ import {
     }
   
     return (
+      <SafeAreaView style={{flex: 1}}>
       <LinearGradient colors={['#272727', '#13140D']} style={styles.container}>
         <ImageBackground
           source={require('../assets/images/long-background.png')}
@@ -248,6 +250,7 @@ import {
           </ScrollView>
         </ImageBackground>
       </LinearGradient>
+      </SafeAreaView>
     );
   };
   

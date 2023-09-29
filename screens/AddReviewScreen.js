@@ -21,6 +21,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import SelectDropdown from 'react-native-select-dropdown';
 
 import Stars from 'react-native-stars';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const AddReviewScreen = ({route, navigation}) => {
   const [isLoading, setLoading] = useState(false);
@@ -81,6 +82,7 @@ const AddReviewScreen = ({route, navigation}) => {
   }, []);
 
   return (
+    <SafeAreaView style={{flex: 1}}>
     <KeyboardAvoidingView behavior="padding" style={{flex: 1}}>
       <LinearGradient colors={['#272727', '#13140D']} style={styles.container}>
         <ImageBackground
@@ -316,6 +318,7 @@ const AddReviewScreen = ({route, navigation}) => {
         </ImageBackground>
       </LinearGradient>
     </KeyboardAvoidingView>
+    </SafeAreaView>
   );
 };
 

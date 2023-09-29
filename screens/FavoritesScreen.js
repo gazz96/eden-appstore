@@ -17,6 +17,7 @@ import { ProductAction, UserAction } from '../actions';
 import { UserContext } from '../context';
 import LinearGradient from 'react-native-linear-gradient';
 import { TouchableOpacity } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const MyOrderScreen = ({ navigation }) => {
   const [orders, setOrders] = useState([]);
@@ -133,268 +134,270 @@ const MyOrderScreen = ({ navigation }) => {
   }
 
   return (
-    <LinearGradient colors={['#272727', '#13140D']} style={styles.container}>
-      <ImageBackground
-        source={require('../assets/images/long-background.png')}
-        resizeMode="cover"
-        style={{ width: '100%', flex: 1, height: '100%' }}>
-        <View style={{ flex: 1 }}>
-          <View style={{ paddingHorizontal: 20 }}>
-            <Gap height={20} />
-            <HeaderWithBackButton
-              onPress={() => navigation.goBack()}
-              title={' FAVORITES'}
-            />
-          </View>
-          <Gap height={30} />
-          <View style={{ flexDirection: 'row', paddingHorizontal: 20 }}>
-            <Text style={{
-              width: '50%',
-              color: (tab == 1 ? '#fff' : '#ccc'),
-              textAlign: 'center',
-              fontFamily: 'Montserrat-SemiBold'
-            }} onPress={() => {
-              setTab(1)
-              getMyOrders()
-            }}>Delivery</Text>
-            <Text style={{
-              width: '50%',
-              color: tab == 2 ? '#fff' : '#ccc',
-              textAlign: 'center',
-              fontFamily: 'Montserrat-SemiBold'
-            }} onPress={() => {
-              setTab(2)
-              getMyShisha()
-            }}>Orders</Text>
-          </View>
-          <ScrollView
-            style={{
-              flex: 1,
-              paddingHorizontal: 20,
-            }}
-            scrollIndicatorInsets={{ right: 1}}
-            refreshControl={
-              <RefreshControl refreshing={isLoading} onRefresh={onRefresh} />
-            }>
+    <SafeAreaView style={{flex: 1}}>
+      <LinearGradient colors={['#272727', '#13140D']} style={styles.container}>
+        <ImageBackground
+          source={require('../assets/images/long-background.png')}
+          resizeMode="cover"
+          style={{ width: '100%', flex: 1, height: '100%' }}>
+          <View style={{ flex: 1 }}>
+            <View style={{ paddingHorizontal: 20 }}>
+              <Gap height={20} />
+              <HeaderWithBackButton
+                onPress={() => navigation.goBack()}
+                title={' FAVORITES'}
+              />
+            </View>
+            <Gap height={30} />
+            <View style={{ flexDirection: 'row', paddingHorizontal: 20 }}>
+              <Text style={{
+                width: '50%',
+                color: (tab == 1 ? '#fff' : '#ccc'),
+                textAlign: 'center',
+                fontFamily: 'Montserrat-SemiBold'
+              }} onPress={() => {
+                setTab(1)
+                getMyOrders()
+              }}>Delivery</Text>
+              <Text style={{
+                width: '50%',
+                color: tab == 2 ? '#fff' : '#ccc',
+                textAlign: 'center',
+                fontFamily: 'Montserrat-SemiBold'
+              }} onPress={() => {
+                setTab(2)
+                getMyShisha()
+              }}>Orders</Text>
+            </View>
+            <ScrollView
+              style={{
+                flex: 1,
+                paddingHorizontal: 20,
+              }}
+              scrollIndicatorInsets={{ right: 1}}
+              refreshControl={
+                <RefreshControl refreshing={isLoading} onRefresh={onRefresh} />
+              }>
 
-            <Gap height={20} />
-            {
-              tab == 1 ?
+              <Gap height={20} />
+              {
+                tab == 1 ?
 
-                <View>
-                  {isLoading ? (
-                    <ActivityIndicator style={{ color: '#fff' }} />
-                  ) : (
-                    orders.map((order, index) => (
-                      <View
-                        key={order.id}
-                        style={{
-                          backgroundColor: '#fff',
-                          borderRadius: 15,
-                          padding: 20,
-                          marginBottom: 30
-                        }}>
-
-                        <TouchableOpacity
-                          onPress={() => {
-                            addToFavorite(order)
-                          }}
-                          style={{
-                            color: '#222',
-                            fontFamily: 'Montserrat-SemiBold',
-                            fontSize: 18,
-                            textAlign: 'right',
-                            width: '100%',
-                            flexDirection: 'row',
-                            justifyContent: 'flex-end'
-                          }}>
-                          {
-                            order.is_favorite ? <Image source={require('../assets/images/star-fill.png')} style={{ width: 25, height: 25 }} width={25} height={25} resizeMode='cover' />
-                              : <Image source={require('../assets/images/star.png')} style={{ width: 25, height: 25 }} width={25} height={25} resizeMode='cover' />
-                          }
-
-                        </TouchableOpacity>
-
-                        <Gap height={5} />
-                        <Text
-                          style={{
-                            color: '#222',
-                            fontFamily: 'Montserrat-SemiBold',
-                          }} >
-                          Package {order.package} -  Bowl {JSON.parse(order.details ?? "[]").length}
-                        </Text>
-                        <Text
-                          style={{
-                            color: '#222',
-                            fontFamily: 'Montserrat-SemiBold',
-                          }}>
-                          {order.order_date}
-
-                        </Text>
-
-                        <Gap height={20} />
+                  <View>
+                    {isLoading ? (
+                      <ActivityIndicator style={{ color: '#fff' }} />
+                    ) : (
+                      orders.map((order, index) => (
                         <View
+                          key={order.id}
                           style={{
-                            flexDirection: 'row',
-                            justifyContent: 'space-between',
+                            backgroundColor: '#fff',
+                            borderRadius: 15,
+                            padding: 20,
+                            marginBottom: 30
                           }}>
-                          <Text
-                            style={{
-                              color: '#222',
-                              fontFamily: 'Montserrat-SemiBold',
-                              fontSize: 16
-                            }}>
-                            Rp {Rp(order.amount)}
-                          </Text>
-                          <Text
-                            style={{
-                              color: '#222',
-                              fontFamily: 'Montserrat-SemiBold',
-                              fontSize: 16
-                            }}>
-                            {order.status}
-                          </Text>
-                        </View>
 
-                        <View style={{ flexDirection: 'row', 'justifyContent': 'space-between' }}>
                           <TouchableOpacity
-                            style={{ width: '100%', overflow: 'hidden' }}
-                            onPress={() => navigation.navigate("Order Detail", {
-                              order: order
-                            })}>
-                            <Text style={{ backgroundColor: '#222', overFlow: 'hidden', borderRadius: 8, color: '#fff', padding: 15, marginTop: 20, textAlign: 'center', fontFamily: 'Montserrat-SemiBold' }}>Detail</Text>
+                            onPress={() => {
+                              addToFavorite(order)
+                            }}
+                            style={{
+                              color: '#222',
+                              fontFamily: 'Montserrat-SemiBold',
+                              fontSize: 18,
+                              textAlign: 'right',
+                              width: '100%',
+                              flexDirection: 'row',
+                              justifyContent: 'flex-end'
+                            }}>
+                            {
+                              order.is_favorite ? <Image source={require('../assets/images/star-fill.png')} style={{ width: 25, height: 25 }} width={25} height={25} resizeMode='cover' />
+                                : <Image source={require('../assets/images/star.png')} style={{ width: 25, height: 25 }} width={25} height={25} resizeMode='cover' />
+                            }
+
                           </TouchableOpacity>
 
-
-                        </View>
-                      </View>
-                    ))
-                  )}
-                </View>
-
-                : <></>
-            }
-
-
-            {
-              tab == 2 ?
-                <View>
-                  {isLoading ? (
-                    <ActivityIndicator />
-                  ) : (
-                    orders.map((order, index) => (
-                      <View
-                        key={order.id}
-                        style={{
-                          backgroundColor: '#fff',
-                          borderRadius: 15,
-                          padding: 20,
-                          marginBottom: 30
-                        }}>
-                        <TouchableOpacity
-                          onPress={() => {
-                            addWaitingToFavorite(order)
-                          }}
-                          style={{
-                            color: '#222',
-                            fontFamily: 'Montserrat-SemiBold',
-                            fontSize: 18,
-                            textAlign: 'right',
-                            width: '100%',
-                            flexDirection: 'row',
-                            justifyContent: 'flex-end'
-                          }}>
-                          {
-                            order.is_favorite ? <Image source={require('../assets/images/star-fill.png')} style={{ width: 25, height: 25 }} width={25} height={25} resizeMode='cover' />
-                              : <Image source={require('../assets/images/star.png')} style={{ width: 25, height: 25 }} width={25} height={25} resizeMode='cover' />
-                          }
-
-                        </TouchableOpacity>
-
-                        <Gap height={5} />
-
-                        <Gap height={5} />
-                        <Text
-                          style={{
-                            color: '#222',
-                            fontFamily: 'Montserrat-SemiBold',
-                          }} >
-                          {order.branch.name || '-'}
-                        </Text>
-                        <Text
-                          style={{
-                            color: '#222',
-                            fontFamily: 'Montserrat-SemiBold',
-                            marginBottom: 10
-                          }} >
-                          {order.table.name ?? '-'}
-                        </Text>
-
-                        <View>
-                      <Text style={{
-                        color: '#222',
-                        fontFamily: 'Montserrat-SemiBold',
-                      }}>ITEMS</Text>
-                      <Gap height={10}/>
-                      {
-                        (order.items).map((item, index) => (
-                          <View key={index} style={{marginBottom: 10}}>
-                            <Text style={{
+                          <Gap height={5} />
+                          <Text
+                            style={{
                               color: '#222',
                               fontFamily: 'Montserrat-SemiBold',
-                              width: '100%'
-                              }}>{item.product.name} x{item.qty}</Text>
-                              {extractIngredents(item.formatted_ingredients ?? null)}
+                            }} >
+                            Package {order.package} -  Bowl {JSON.parse(order.details ?? "[]").length}
+                          </Text>
+                          <Text
+                            style={{
+                              color: '#222',
+                              fontFamily: 'Montserrat-SemiBold',
+                            }}>
+                            {order.order_date}
+
+                          </Text>
+
+                          <Gap height={20} />
+                          <View
+                            style={{
+                              flexDirection: 'row',
+                              justifyContent: 'space-between',
+                            }}>
+                            <Text
+                              style={{
+                                color: '#222',
+                                fontFamily: 'Montserrat-SemiBold',
+                                fontSize: 16
+                              }}>
+                              Rp {Rp(order.amount)}
+                            </Text>
+                            <Text
+                              style={{
+                                color: '#222',
+                                fontFamily: 'Montserrat-SemiBold',
+                                fontSize: 16
+                              }}>
+                              {order.status}
+                            </Text>
                           </View>
-                        ))
-                      }
-                    </View>
-                    {
-                      order.status == 'Paid' ? <Text style={{color: '#222', fontFamily: 'Montserrat-SemiBold'}}>+ {Rp(order.edc_collected)} EDC</Text> : <></>
-                    }
-                        <Text
-                          style={{
-                            color: '#222',
-                            fontFamily: 'Montserrat-SemiBold',
-                          }}>
-                          {order.order_date}
 
-                        </Text>
+                          <View style={{ flexDirection: 'row', 'justifyContent': 'space-between' }}>
+                            <TouchableOpacity
+                              style={{ width: '100%', overflow: 'hidden' }}
+                              onPress={() => navigation.navigate("Order Detail", {
+                                order: order
+                              })}>
+                              <Text style={{ backgroundColor: '#222', overFlow: 'hidden', borderRadius: 8, color: '#fff', padding: 15, marginTop: 20, textAlign: 'center', fontFamily: 'Montserrat-SemiBold' }}>Detail</Text>
+                            </TouchableOpacity>
 
-                        <Gap height={20} />
-                        <View
-                          style={{
-                            flexDirection: 'row',
-                            justifyContent: 'space-between',
-                          }}>
-                          <Text
-                            style={{
-                              color: '#222',
-                              fontFamily: 'Montserrat-SemiBold',
-                              fontSize: 16
-                            }}>
-                            Rp {Rp(order.total_product_price)}
-                          </Text>
-                          <Text
-                            style={{
-                              color: '#222',
-                              fontFamily: 'Montserrat-SemiBold',
-                              fontSize: 16
-                            }}>
-                            {order.status}
-                          </Text>
+
+                          </View>
                         </View>
+                      ))
+                    )}
+                  </View>
 
+                  : <></>
+              }
+
+
+              {
+                tab == 2 ?
+                  <View>
+                    {isLoading ? (
+                      <ActivityIndicator />
+                    ) : (
+                      orders.map((order, index) => (
+                        <View
+                          key={order.id}
+                          style={{
+                            backgroundColor: '#fff',
+                            borderRadius: 15,
+                            padding: 20,
+                            marginBottom: 30
+                          }}>
+                          <TouchableOpacity
+                            onPress={() => {
+                              addWaitingToFavorite(order)
+                            }}
+                            style={{
+                              color: '#222',
+                              fontFamily: 'Montserrat-SemiBold',
+                              fontSize: 18,
+                              textAlign: 'right',
+                              width: '100%',
+                              flexDirection: 'row',
+                              justifyContent: 'flex-end'
+                            }}>
+                            {
+                              order.is_favorite ? <Image source={require('../assets/images/star-fill.png')} style={{ width: 25, height: 25 }} width={25} height={25} resizeMode='cover' />
+                                : <Image source={require('../assets/images/star.png')} style={{ width: 25, height: 25 }} width={25} height={25} resizeMode='cover' />
+                            }
+
+                          </TouchableOpacity>
+
+                          <Gap height={5} />
+
+                          <Gap height={5} />
+                          <Text
+                            style={{
+                              color: '#222',
+                              fontFamily: 'Montserrat-SemiBold',
+                            }} >
+                            {order.branch.name || '-'}
+                          </Text>
+                          <Text
+                            style={{
+                              color: '#222',
+                              fontFamily: 'Montserrat-SemiBold',
+                              marginBottom: 10
+                            }} >
+                            {order.table.name ?? '-'}
+                          </Text>
+
+                          <View>
+                        <Text style={{
+                          color: '#222',
+                          fontFamily: 'Montserrat-SemiBold',
+                        }}>ITEMS</Text>
+                        <Gap height={10}/>
+                        {
+                          (order.items).map((item, index) => (
+                            <View key={index} style={{marginBottom: 10}}>
+                              <Text style={{
+                                color: '#222',
+                                fontFamily: 'Montserrat-SemiBold',
+                                width: '100%'
+                                }}>{item.product.name} x{item.qty}</Text>
+                                {extractIngredents(item.formatted_ingredients ?? null)}
+                            </View>
+                          ))
+                        }
                       </View>
-                    ))
-                  )}
-                </View> : <></>
-            }
+                      {
+                        order.status == 'Paid' ? <Text style={{color: '#222', fontFamily: 'Montserrat-SemiBold'}}>+ {Rp(order.edc_collected)} EDC</Text> : <></>
+                      }
+                          <Text
+                            style={{
+                              color: '#222',
+                              fontFamily: 'Montserrat-SemiBold',
+                            }}>
+                            {order.order_date}
 
-          </ScrollView>
-        </View>
-      </ImageBackground>
-    </LinearGradient>
+                          </Text>
+
+                          <Gap height={20} />
+                          <View
+                            style={{
+                              flexDirection: 'row',
+                              justifyContent: 'space-between',
+                            }}>
+                            <Text
+                              style={{
+                                color: '#222',
+                                fontFamily: 'Montserrat-SemiBold',
+                                fontSize: 16
+                              }}>
+                              Rp {Rp(order.total_product_price)}
+                            </Text>
+                            <Text
+                              style={{
+                                color: '#222',
+                                fontFamily: 'Montserrat-SemiBold',
+                                fontSize: 16
+                              }}>
+                              {order.status}
+                            </Text>
+                          </View>
+
+                        </View>
+                      ))
+                    )}
+                  </View> : <></>
+              }
+
+            </ScrollView>
+          </View>
+        </ImageBackground>
+      </LinearGradient>
+    </SafeAreaView>
   );
 };
 

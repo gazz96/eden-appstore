@@ -12,6 +12,7 @@ import RenderHtml from 'react-native-render-html';
 import LinearGradient from 'react-native-linear-gradient'
 import { HeaderWithBackButton } from '../components'
 import WebView from 'react-native-webview'
+import { SafeAreaView } from 'react-native-safe-area-context'
 const AboutScreen = ({route, navigation}) => {
     //const { article } = route.params;
     let getImage = (image) => {
@@ -22,6 +23,7 @@ const AboutScreen = ({route, navigation}) => {
 
     const { width } = useWindowDimensions();
     return (
+        <SafeAreaView style={{flex: 1}}>
         <LinearGradient colors={['#272727', '#13140D']} style={{ flex: 1 }}>
             <ImageBackground source={require('../assets/images/long-background.png')} resizeMode="cover" style={{width: '100%', flex: 1, height: '100%'}}>
                 {/* <ScrollView style={{  height: '100%', paddingHorizontal: 20 }}> */}
@@ -36,6 +38,7 @@ const AboutScreen = ({route, navigation}) => {
                 {/* </ScrollView> */}
             </ImageBackground>
         </LinearGradient>
+        </SafeAreaView>
     )
 }
 
