@@ -208,6 +208,12 @@ const UserAction = {
             user_id: id
         })
         return response.data;
+    },
+    getPoints: async(id) => {
+        const response = await axiosRequest.post('/user/points', {
+            user_id: id
+        });
+        return response.data;
     }
 }
 

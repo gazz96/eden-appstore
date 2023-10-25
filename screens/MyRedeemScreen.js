@@ -15,6 +15,7 @@ import {
   import {UserAction} from '../actions';
   import {UserContext} from '../context';
   import LinearGradient from 'react-native-linear-gradient';
+  import moment from 'moment'
 import { SafeAreaView } from 'react-native-safe-area-context';
   
   const MyRedeemScreen = ({navigation}) => {
@@ -29,8 +30,8 @@ import { SafeAreaView } from 'react-native-safe-area-context';
         const response = await UserAction.getRedeems({
           user_id: state.get().id,
         });
-        console.log(response.data);
-        setOrders(response.data);
+        console.log('response', response);
+        setOrders(response);
         setLoading(false);
       } catch (error) {
         console.log(error.response);
@@ -38,6 +39,21 @@ import { SafeAreaView } from 'react-native-safe-area-context';
         setLoading(false);
       }
     };
+
+    const getPoints = async () => {
+      try {
+        console.log('userid', state.get().id);
+        const response = await UserAction.getPoints(state.get().id);
+        console.log('response', response);
+        setOrders(response);
+        setLoading(false);
+      } catch (error) {
+        console.log(error.response);
+      } finally {
+        setLoading(false);
+      }
+    };
+
   
     const uploadPath = (image = '') => {
       if (image) {
@@ -47,12 +63,13 @@ import { SafeAreaView } from 'react-native-safe-area-context';
     };
   
     const onRefresh = React.useCallback(() => {
-      getMyOrders();
+      getPoints();
     }, []);
   
     useEffect(() => {
       const unsubscribe = navigation.addListener('focus', async () => {
-        getMyOrders();
+        //getMyOrders();
+        getPoints();
       });
     }, []);
   
@@ -104,65 +121,17 @@ import { SafeAreaView } from 'react-native-safe-area-context';
                         padding: 20,
                         marginBottom: 30
                       }} key={order.id}>
-                      <Text
-                        style={{
-                          color: '#222',
-                          fontFamily: 'Montserrat-SemiBold',
-                          fontSize: 18,
-                        }}>
-                        {JSON.parse(order.items[0].gift)?.name}
-                      </Text>
-                      <Gap height={5} />
-                      <View>
-                        <Text
-                          style={{
-                            color: '#222',
-                            fontFamily: 'Montserrat-SemiBold',
-                            marginBottom: 10
-                          }}>
-                          {order.code}
+                        
+                        <Text style={{
+                          color: (order.action == 'increase') ? 'green': 'red' , 
+                          fontFamily: "Montserrat-SemiBold",}}>
+                            {
+                              (order.action == 'increase') ? '+' : '-'
+                            } {order.point} Point
                         </Text>
-                        <Text
-                          style={{
-                            color: '#888888',
-                            fontFamily: 'Montserrat-SemiBold',
-                          }}>
-                          Please pickup the redeemed item at nearest store
-                        </Text>
-                      </View>
-                      <Text
-                        style={{
-                          color: '#222',
-                          fontFamily: 'Montserrat-SemiBold',
-                          color: '#222'
-                        }}>
-                        {order.order_date}
-                      </Text>
-    
-                      <Gap height={20} />
-                      <View
-                        style={{
-                          flexDirection: 'row',
-                          justifyContent: 'space-between',
-                        }}>
-                        <Text
-                          style={{
-                            color: '#222',
-                            fontFamily: 'Montserrat-SemiBold',
-                            fontSize: 16
-                          }}>
-                          EDC {Rp(order.amount)}
-                        </Text>
-                        <Text
-                          style={{
-                            color: '#222',
-                            fontFamily: 'Montserrat-SemiBold',
-                            fontSize: 16
-                          }}>
-                          {/* {order.status} */}
-                          
-                        </Text>
-                      </View>
+                        <Text style={{
+                          fontFamily: 'Montserrat-SemiBold'
+                        }}>{moment(order.created_at).format('MMMM Do YYYY, h:mm:ss a')}</Text>
                     </View>
                   ))
                 )}
